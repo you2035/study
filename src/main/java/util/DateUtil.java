@@ -1,3 +1,5 @@
+package util;
+
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -30,12 +32,14 @@ public class DateUtil {
 
     public static void main(String[] args) throws ParseException {
 
-        //		Calendar calendar1= Calendar.getInstance();
-//		calendar1.set(2019,1,1);
-//		Calendar calendar2 = Calendar.getInstance();
-//		calendar2.set(2019,1,2);
-//		int day = daysBetween(calendar1.getTime(),calendar2.getTime());
-//		System.out.println(day);
+        		Calendar calendar1= Calendar.getInstance();
+		calendar1.set(2019,1,1);
+		Calendar calendar2 = Calendar.getInstance();
+		calendar2.set(2019,1,2);
+		int day = daysBetween(calendar1.getTime(),calendar2.getTime());
+        System.out.println("day1 = "+dateFormat.format(calendar1.getTime()));
+        System.out.println("day2 = "+dateFormat.format(calendar2.getTime()));
+		System.out.println(day);
 //
 //		compareDate("2019-01-01","2019-01-02");
 
@@ -58,7 +62,7 @@ public class DateUtil {
 //		String v = dateFormat.format(getCycleYearEndDate(dateFormat.parse(date),3));
         String v = dateFormat.format(getYearTaskStart(dateFormat.parse(date),2,"m2","w4",3,4));
 
-        System.out.println(v);
+//        System.out.println(v);
 
     }
 
