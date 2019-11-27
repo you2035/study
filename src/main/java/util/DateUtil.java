@@ -32,14 +32,14 @@ public class DateUtil {
 
     public static void main(String[] args) throws ParseException {
 
-        		Calendar calendar1= Calendar.getInstance();
-		calendar1.set(2019,1,1);
-		Calendar calendar2 = Calendar.getInstance();
-		calendar2.set(2019,1,2);
-		int day = daysBetween(calendar1.getTime(),calendar2.getTime());
-        System.out.println("day1 = "+dateFormat.format(calendar1.getTime()));
-        System.out.println("day2 = "+dateFormat.format(calendar2.getTime()));
-		System.out.println(day);
+//        		Calendar calendar1= Calendar.getInstance();
+//		calendar1.set(2019,1,1);
+//		Calendar calendar2 = Calendar.getInstance();
+//		calendar2.set(2019,1,2);
+//		int day = daysBetween(calendar1.getTime(),calendar2.getTime());
+//        System.out.println("day1 = "+dateFormat.format(calendar1.getTime()));
+//        System.out.println("day2 = "+dateFormat.format(calendar2.getTime()));
+//		System.out.println(day);
 //
 //		compareDate("2019-01-01","2019-01-02");
 
@@ -60,10 +60,14 @@ public class DateUtil {
 //		String v = dateFormat.format(getCycleQuarterEndDate(dateFormat.parse(date),4));
 //		String v = dateFormat.format(getMonthTaskStart(dateFormat.parse(date),2,"m7","26",3));
 //		String v = dateFormat.format(getCycleYearEndDate(dateFormat.parse(date),3));
-        String v = dateFormat.format(getYearTaskStart(dateFormat.parse(date),2,"m2","w4",3,4));
+//        String v = dateFormat.format(getYearTaskStart(dateFormat.parse(date),2,"m2","w4",3,4));
 
 //        System.out.println(v);
 
+//        Date date2 = getNextDayWithNumber(new Timestamp(dateFormat.parse(date).getTime()),-1);
+//
+        Date date2 = getCurrHalfYearFirstDay(dateFormat.parse(date));
+        System.out.println(dateFormat.format(date2));
     }
 
     public static boolean compareDate(String date1, String date2) {
@@ -356,4 +360,27 @@ public class DateUtil {
 
         return date;
     }
+
+    //根据传入的日期获取当前半年的第一天
+    public static Date getCurrHalfYearFirstDay(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        int month = calendar.get(Calendar.MONTH);
+
+        Date firstDate = getHalfYearFirthDayWithMonthNo(month + 1,calendar);
+
+        return firstDate;
+    }
+
+    public static Date getHalfYearFirthDayWithMonthNo(int month,Calendar calendar){
+        if (month >= 1 && month <= 6) {
+            calendar.set(Calendar.MONTH, 0);
+        } else if (month >= 7 && month <= 12) {
+            calendar.set(Calendar.MONTH, 6);
+        }
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+
+        return calendar.getTime();
+    }
+
 }
