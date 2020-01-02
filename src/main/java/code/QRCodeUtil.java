@@ -128,11 +128,11 @@ public class QRCodeUtil {
      * @throws Exception
      */
     public static void encode(String content, String imgPath, String destPath,
-                              boolean needCompress) throws Exception {
+                              boolean needCompress,String picName) throws Exception {
         BufferedImage image = QRCodeUtil.createImage(content, imgPath,
                 needCompress);
         mkdirs(destPath);
-        String file = new Random().nextInt(99999999)+".jpg";
+        String file = picName+".jpg";
         ImageIO.write(image, FORMAT_NAME, new File(destPath+"/"+file));
     }
 
@@ -164,7 +164,7 @@ public class QRCodeUtil {
      */
     public static void encode(String content, String imgPath, String destPath)
             throws Exception {
-        QRCodeUtil.encode(content, imgPath, destPath, false);
+        QRCodeUtil.encode(content, imgPath, destPath, false,"11");
     }
 
     /**
@@ -180,7 +180,7 @@ public class QRCodeUtil {
      */
     public static void encode(String content, String destPath,
                               boolean needCompress) throws Exception {
-        QRCodeUtil.encode(content, null, destPath, needCompress);
+        QRCodeUtil.encode(content, null, destPath, needCompress,"11");
     }
 
     /**
@@ -193,7 +193,7 @@ public class QRCodeUtil {
      * @throws Exception
      */
     public static void encode(String content, String destPath) throws Exception {
-        QRCodeUtil.encode(content, null, destPath, false);
+        QRCodeUtil.encode(content, null, destPath, false,"11");
     }
 
     /**
@@ -270,7 +270,7 @@ public class QRCodeUtil {
     public static void main(String[] args) throws Exception {
 
         String text = "编号";
-        QRCodeUtil.encode(text,"F:/QrCode", true);
+        QRCodeUtil.encode(text,"D:/QrCode", true);
 //        System.out.println(QRCodeUtil.decode("F:/QrCode/android.png"));
 //        System.out.println(QRCodeUtil.decode("F:/QrCode/ios.png"));
     }
