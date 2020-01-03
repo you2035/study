@@ -1,0 +1,18 @@
+package designPattern.Adapter;
+
+/**
+ * @Auther: liuxin
+ * @Date: 2020/1/3 17:20
+ * @Description:
+ */
+public class Mp4Player implements AdvancedMediaPlayer {
+	@Override
+	public void playVlc(String fileName) {
+		//什么也不做
+	}
+
+	@Override
+	public void playMp4(String fileName) {
+		System.out.println("Playing mp4 file. Name: "+ fileName);
+	}
+}
