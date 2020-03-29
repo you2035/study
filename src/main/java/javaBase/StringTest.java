@@ -9,10 +9,11 @@ public class StringTest {
 
 
     public static void main(String[] args) {
-//        String s= "abcd";
-//        String s2 = "abcd";
-//        System.out.println(s == s2);
-
+        String s= "abcd";
+        String s2 = "abcd";
+        String s3 = "a"+"b"+"c"+"d";
+        System.out.println(s == s3);
+        System.out.println(Math.round(-2.5));
 //        String s = new String("1");
 //        String s2 = "1";
 //        s.intern();
@@ -25,10 +26,10 @@ public class StringTest {
 //        s3.intern();
 //        System.out.println(s3 == s4);//true
 //        String st2 = "a"+"b"+"c";
-        String st1 = "ab";
-        String st2 = "abc";
-        String st3 = st1 + "c";
-        System.out.println(st2 == st3);
-        System.out.println(st2.equals(st3));
+//        String st1 = "ab";
+//        String st2 = "abc";
+//        String st3 = st1 + "c";
+//        System.out.println(st2 == st3);
+//        System.out.println(st2.equals(st3));
     }
 }
