@@ -168,5 +168,13 @@ public class ArraysTest {
 		List<Integer> list = Arrays.stream(array).boxed().collect(Collectors.toList());
 		System.out.println(list);
 
+		int oldCapacity = 10;
+
+		int newCapacity = oldCapacity + (oldCapacity >> 1);
+
+
+
+		System.out.println(newCapacity);
+
 	}
 }
