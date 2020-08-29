@@ -31,5 +31,23 @@ public class StringTest {
 //        String st3 = st1 + "c";
 //        System.out.println(st2 == st3);
 //        System.out.println(st2.equals(st3));
+        System.out.println("---------------");
+            String []a = {"11","22","33"};
+            String []b = a;
+            b[1]="44";
+
+        for (String s1 : b) {
+            System.out.print(s1+" ");
+        }
+
+        System.out.println();
+
+        for (String s1 : a) {
+            System.out.print(s1+" ");
+        }
+
+        System.out.println("-----------");
+        System.out.println(null instanceof Object);
+
     }
 }
